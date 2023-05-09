@@ -8,6 +8,7 @@ user input is an actual number, to see the difference between the inputted numbe
 randomly generated numbers, and to then compare the numbers.
 
 """
+
 import random
 
 def generate_random_number():
