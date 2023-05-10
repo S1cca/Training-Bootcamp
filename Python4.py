@@ -12,62 +12,73 @@ House=("Kitchen","Living Room","bedroom","Dining Room")
 position = 0
 
 print(f"Welcome to our adventure game. We are in a house with 4 rooms. Horizontally aligned. \n You are now in the {House[position]}")
-move = input("Do you wanna move (yes/no): ")
-## check if user want to move
-if move == "yes":
-    print(f"You are currently in the {House[position]}")
-    
-    if position == 0:
-        ## if the use is the initial position 0, which can only be moved forward
-        print("Which way would you wanna go? You can only go forward")
-        steps = int(input("How many steps would you wanna move?(a number): "))
-        if steps > 0 and steps < (5 - position):
-            ## check if the steps wanted to move is in the limit
-            position += steps
-            print(f"You took {steps} steps, you are now in {House[position]}")
-        elif steps == 0:
-            print(f"You have not moved, You are still in the {House[position]}")
-        else:
-            print(f"You can’t move further in this direction, you can not move {steps} steps")
-    
-
-    else:
-        direction = input("which way would you wanna go? (forward/backward): ")
-        if direction == "forward":
-            ## if the user wanna move forward
+while position > -1:
+    move = input("Do you wanna move (y/n) or exit(exit) ")
+    ## check if user want to move
+    if move == "y":
+        print(f"You are currently in the {House[position]}")
+        
+        if position == 0:
+            ## if the use is the initial position 0, which can only be moved forward
+            print("You can only go forward")
             steps = int(input("How many steps would you wanna move?(a number): "))
             if steps > 0 and steps < (5 - position):
+                ## check if the steps wanted to move is in the limit
                 position += steps
-                print(f"You took {steps} steps, you are now in {House[position]}")
+                print(f"You took {steps} steps, you are now in {House[position]} \n")
             elif steps == 0:
-                print(f"You have not moved, You are still in the {House[position]}")
+                print(f"You have not moved, You are still in the {House[position]} \n")
             else:
-                print(f"You can’t move further in this direction, you can not move {steps} steps")
+                print(f"You can’t move {steps} steps in this direction, you would hit the wall")
+                print(f"You are currently in {House[position]} \n")
         
-        elif direction == "backward":
-            ## if the user wanna move backward
-            steps = int(input("How many steps would you wanna move?(a number): "))
-            if steps > 0 and steps < (5 - position):
-                if (position - steps) < 0:
-                    ## Check if users can move that many steps
-                    print(f"You cant move that many steps, you would go over the wall")
-                else:
-                    position -= steps
-                    print(f"You took {steps} steps, you are now in {House[position]}")
-            
-            elif steps == 0:
-                print(f"You have not moved, You are still in the {House[position]}")
-            else:
-                print(f"You can’t move further in this direction, you can not move {steps} steps")
-        
-        
-        else:
-            ## Error message if user inputed words other than forward/backward
-            print ("please input only forward or backward")
 
-else:
-    ## if user chose to not move
-    print(f"You have not moved, You are still in the {House[position]}")
+        else:
+            direction = input("which way would you wanna go? (f for forward/ b for backward): ")
+            if direction == "f":
+                ## if the user wanna move forward
+                steps = int(input("How many steps would you wanna move?(a number): "))
+                if steps > 0 and steps < (5 - position):
+                    position += steps
+                    print(f"You took {steps} steps, you are now in {House[position]} \n")
+                elif steps == 0:
+                    print(f"You have not moved, You are still in the {House[position]} \n")
+                else:
+                    print(f"You can’t move {steps} steps in this direction, you would hit the wall")
+                    print(f"You are currently in {House[position]} \n")
+            
+            elif direction == "b":
+                ## if the user wanna move backward
+                steps = int(input("How many steps would you wanna move?(a number): "))
+                if steps > 0 and steps < (5 - position):
+                    if (position - steps) < 0:
+                        ## Check if users can move that many steps
+                        print(f"You cant move that many steps, you would go over the wall")
+                    else:
+                        position -= steps
+                        print(f"You took {steps} steps, you are now in {House[position]} \n")
+                
+                elif steps == 0:
+                    print(f"You have not moved, You are still in the {House[position]} \n")
+                else:
+                    print(f"You can’t move {steps} steps in this direction, you would hit the wall")
+                    print(f"You are currently in {House[position]} \n")
+            
+            
+            else:
+                ## Error message if user inputed words other than forward/backward
+                print ("please input only forward or backward \n")
+
+    elif move == "n":
+        ## if user chose to not move
+        print(f"You have not moved, You are still in the {House[position]} \n")
+    elif move == "exit":
+        print("You are now exit the house, Goodbye")
+        break
+    
+    
+    else:
+        print(f"Please input either y or n")
 
 
 
