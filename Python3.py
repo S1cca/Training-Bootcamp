@@ -30,5 +30,9 @@ verb2 = input("Verb: ")
 noun4 = input("Noun: ")
 verb3 = input("Verb: ")
 
-print(f"Today a {occupation} named {noun4} came to our school to talk to us about her job. She said the most important skill you need to know to do her job is to be able to {verb2} around a {adjective1} {noun3}. She said it was easy for her to learn her job because she loved to {verb1} when she was my age--and that helps a lot! If you're considering her profession, I hope you can be near a {adjective2} {noun1}. That's very important! If you get too distracted in that situation you won't be able to {verb3} next to a {noun2}!")
+print(f"Today a {occupation} named {noun4} came to our school to talk to us about her job. ")
+print(f"She said the most important skill you need to know to do her job is to be able to {verb2} around a {adjective1} {noun3}. ")
+print(f"She said it was easy for her to learn her job because she loved to {verb1} when she was my age--and that helps a lot! ")
+print(f"If you're considering her profession, I hope you can be near a {adjective2} {noun1}. ")
+print(f"That's very important! If you get too distracted in that situation you won't be able to {verb3} next to a {noun2}!")
 
